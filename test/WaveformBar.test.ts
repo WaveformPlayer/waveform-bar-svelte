@@ -24,6 +24,7 @@ vi.mock('@arraypress/waveform-bar', () => ({ default: {}, WaveformBar: {} }));
 
 import WaveformBar from '../src/lib/WaveformBar.svelte';
 import WaveformBarTrigger from '../src/lib/WaveformBarTrigger.svelte';
+import type { WaveformBarConfig } from '../src/lib/types';
 
 const init = vi.fn();
 const destroy = vi.fn();
@@ -55,6 +56,23 @@ describe('WaveformBar (Svelte)', () => {
 		render(WaveformBar, { props: { config } });
 		await vi.waitFor(() => expect(init).toHaveBeenCalledTimes(1));
 		expect(init).toHaveBeenCalledWith(config);
+	});
+
+	it('forwards waveformGradient, gradient colour stops, barRadius and showTime verbatim', async () => {
+		// Typed as WaveformBarConfig on purpose: this literal is the type
+		// test — the typecheck rejected every one of these keys/values before.
+		const config: WaveformBarConfig = {
+			waveformGradient: 'horizontal',
+			waveformColor: ['#fafafa', '#71717a'],
+			progressColor: ['#22d3ee', '#0e7490'],
+			barRadius: 0,
+			showTime: false,
+		};
+		render(WaveformBar, { props: { config } });
+		await vi.waitFor(() => expect(init).toHaveBeenCalledTimes(1));
+		expect(init).toHaveBeenCalledWith(config);
+		// 0 is a real value (square caps), not "unset" — it must survive.
+		expect(init.mock.calls[0][0].barRadius).toBe(0);
 	});
 
 	it('re-inits when the config shape changes', async () => {
