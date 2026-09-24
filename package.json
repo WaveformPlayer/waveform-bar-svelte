@@ -1,6 +1,6 @@
 {
   "name": "@arraypress/waveform-bar-svelte",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Svelte 5 components for @arraypress/waveform-bar — a singleton persistent bottom bar and a polymorphic play/queue trigger.",
   "type": "module",
   "svelte": "./dist/index.js",
@@ -70,7 +70,7 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@arraypress/waveform-bar": "^1.11.0",
+    "@arraypress/waveform-bar": "^1.12.0",
     "@sveltejs/package": "^2.3.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "@testing-library/jest-dom": "^6.9.1",
