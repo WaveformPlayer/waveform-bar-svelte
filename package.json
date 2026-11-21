@@ -36,10 +36,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arraypress/waveform-bar-svelte.git"
+    "url": "git+https://github.com/WaveformPlayer/waveform-bar-svelte.git"
   },
   "bugs": {
-    "url": "https://github.com/arraypress/waveform-bar-svelte/issues"
+    "url": "https://github.com/WaveformPlayer/waveform-bar-svelte/issues"
   },
   "homepage": "https://waveformplayer.com",
   "funding": {
